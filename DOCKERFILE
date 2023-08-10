@@ -1,1 +1,7 @@
 FROM postgres:latest
+RUN psql -U postgres
+RUN create database auditenergia_db;
+RUN create user auditenergia_usr with encrypted password 'unaClav3';
+RUN \c auditenergia_db
+RUN grant all privileges on database auditenergia_db to auditenergia_usr;
+RUN grant all privileges on schema public to auditenergia_usr;
