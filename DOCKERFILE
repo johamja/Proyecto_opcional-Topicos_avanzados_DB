@@ -1,4 +1,9 @@
 FROM postgres:latest
+
+ENV POSTGRES_PASSWORD=unaClav3
+EXPOSE 5432/tcp
+EXPOSE 5432/udp
+
 RUN psql -U postgres
 RUN create database auditenergia_db;
 RUN create user auditenergia_usr with encrypted password 'unaClav3';
